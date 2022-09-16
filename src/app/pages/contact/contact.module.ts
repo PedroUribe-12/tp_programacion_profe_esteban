@@ -5,7 +5,8 @@ import { ContactRoutingModule } from './contact-routing.module';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 
 import{GoogleMapsModule} from '@angular/google-maps';
-
+import { ButtonModule } from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
 @NgModule({
   declarations: [
     ContactPageComponent
@@ -14,6 +15,8 @@ import{GoogleMapsModule} from '@angular/google-maps';
     CommonModule,
     ContactRoutingModule,
     GoogleMapsModule,
+    ButtonModule,
+    InputTextModule
   ]
 })
 export class ContactModule { }

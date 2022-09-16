@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { User } from 'src/app/models/user'; 
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -21,6 +22,33 @@ export class NavbarComponent implements OnInit {
   value: any;
 
   usuarios:User[];
+
+  usuariosForm = new FormGroup(
+    {
+      email: new FormControl('', Validators.required),
+      contrasenia: new FormControl('', Validators.required),
+    }
+  )
+
+  validarUsuario(){
+
+    if(this.usuariosForm.valid){
+      this.usuarios.forEach(usuario => {
+        if(this.usuariosForm.value.email === usuario.email){
+          if(this.usuariosForm.value.contrasenia === usuario.contrasenia){
+            this.adminVisible = true;
+            this.ngOnInit();
+            this.displayPosition = false;
+            alert('Se ha registrado correctamente');
+          }else{
+            alert('La contraseña es incorrecta');
+          }
+        }
+      });
+    }else{
+      alert('Faltan completar los campos');
+    }
+  }
 
   constructor(private servicioUsuarios: UsuariosService) { 
     //Creamos la funcion que cambiara de color el navbar cuando se realice un scroll
@@ -45,14 +73,14 @@ export class NavbarComponent implements OnInit {
       {
         label: 'Admin',
         icon:'pi pi-phone',
-        routerLink: 'admin'
+        routerLink: 'admin',
+        visible: this.adminVisible
       },
     ]
 
     this.servicioUsuarios.getUsuarios().subscribe(callUser => {
       this.usuarios = callUser;
-      console.log(callUser);
-    })
+    });
   }
 
   showPositionDialog(position: string) {

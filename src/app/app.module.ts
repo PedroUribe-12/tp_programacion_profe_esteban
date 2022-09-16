@@ -9,7 +9,7 @@ import { CardNewService } from './servicios/card-new.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,44 +1,61 @@
 ::ng-deep{
-    .p-carousel{
-    width: 100vw;
+  .p-carousel{
+  width: 100vw;
 }
+}
+
+.cuerpo{
+display: flex;
+flex-direction: column;
+}
+
+.estrellas{
+display: flex;
+justify-content: center;
 }
 .carta{
-    width: 350px;
-    padding: 8px 8px;
-    border: 2px rgba(204, 204, 204, 0.5) solid;
-    border-radius: 30px;
+  width: 350px;
+  padding: 8px 8px;
+  border: 2px rgba(204, 204, 204, 0.5) solid;
+  border-radius: 30px;
 }
-  
-  .cafe{
-   margin: 0 5px;
-   text-align: center;
-  }
-  h5{
-    color: #000;
-    font-size: 1.2em;
-    margin: 0;
-  }
-  .imagen{
-    object-fit: cover;
-    border-radius: 20px;
-    width: 100%;
-  }
-  .fother_cafe{
-    display: flex;
-    justify-content: space-between;
-    margin: 0 15px;
-  }
+
+.cafe{
+ margin: 0 5px;
+ text-align: center;
+}
+h5{
+  color: #000;
+  font-size: 1.2em;
+  margin: 0;
+}
+.imagen{
+  object-fit: cover;
+  border-radius: 20px;
+  width: 100%;
+}
+.fother_cafe{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15px;
+}
 .canasta{
-    color: rgb(177, 124, 11);
-    background: rgba(255, 255, 255, 0);
-    border: solid 2px ;
-    border-radius: 50px;
+  color: rgb(177, 124, 11);
+  background: rgba(255, 255, 255, 0);
+  border: solid 2px ;
+  border-radius: 50px;
 }
 
-  .precio{
-    font-weight: 900;
-    font-size: 1.1em;
-  }
+.precio{
+  font-weight: 900;
+  font-size: 1.1em;
+}
+:host ::ng-deep .pi-star:before {
+  content: "\e937";
+  color: rgb(117, 49, 4);
+}
 
-
+:host ::ng-deep .pi-star-fill:before {
+content: "\e936";
+color: rgb(177, 124, 11);
+}

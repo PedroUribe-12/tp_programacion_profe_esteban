@@ -7,47 +7,36 @@
 <p-dialog header="Godfather I" [(visible)]="displayPosition" [position]="position" [modal]="true" [style]="{width: '50vw'}"
     [draggable]="false" [resizable]="false">
 
-    <div class="grid pt-2">
-        <div class="col-12">
-            <div class="grid">
-                <div class="col-12 md:col-6">
-                    <button pButton pRipple type="button" class="p-button-warning w-full"><i class="pi pi-google pr-3"></i>Google</button>
-                </div>
-                <div class="col-12 md:col-6">
-                    <button pButton pRipple type="button" class="p-button-warning w-full"><i class="pi pi-facebook pr-3"></i>Facebook</button>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="col-6 md:col-6">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input type="text" pInputText placeholder="Nombre" class="w-full">      
+    <form [formGroup]="usuariosForm">
+        <div class="grid pt-2">
+            <div class="col-12">
+                <div class="grid">
+                    <div class="col-12 md:col-6">
+                        <button pButton pRipple type="button" class="p-button-warning w-full"><i class="pi pi-google pr-3"></i>Google</button>
+                    </div>
+                    <div class="col-12 md:col-6">
+                        <button pButton pRipple type="button" class="p-button-warning w-full"><i class="pi pi-facebook pr-3"></i>Facebook</button>
                     </div>
                 </div>
-                <div class="col-6 md:col-6">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input type="text" pInputText placeholder="Apellido" class="w-full">           
+                <div class="grid">
+                    <div class="col-6 md:col-6">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                            <input type="text" pInputText placeholder="Email" class="w-full" formControlName="email">      
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 md:col-6">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
-                        <input type="text" pInputText placeholder="Email" class="w-full">      
-                    </div>
-                </div>
-                <div class="col-6 md:col-6">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-                        <input type="text" pInputText placeholder="Contraseña" class="w-full">           
+                    <div class="col-6 md:col-6">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+                            <input type="text" pInputText placeholder="Contraseña" class="w-full" formControlName="contrasenia">           
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+    </form>
     <ng-template pTemplate="footer">
-        <div class="col-12"><button pButton pRipple type="button" class="p-button-warning">Registrarse</button></div>
+        <div class="col-12"><button pButton pRipple type="button" class="p-button-warning" (click)="validarUsuario()">Registrarse</button></div>
     </ng-template>
 </p-dialog>
 

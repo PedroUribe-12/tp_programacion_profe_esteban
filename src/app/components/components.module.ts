@@ -13,6 +13,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { CardNewService } from '../servicios/card-new.service';
 import {CarouselModule} from 'primeng/carousel';
+import { CrudTableComponent } from './crud-table/crud-table.component';
+import {TableModule} from 'primeng/table';
+import { CardsitasComponent } from './cardsitas/cardsitas.component';
 
 
 @NgModule({
@@ -21,7 +24,9 @@ import {CarouselModule} from 'primeng/carousel';
     CardComponent,
     GaleriaComponent,
     CardNewsComponent,
-    ContactComponent
+    ContactComponent,
+    CrudTableComponent,
+    CardsitasComponent
     ],
   imports: [
     CommonModule,
@@ -29,13 +34,15 @@ import {CarouselModule} from 'primeng/carousel';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RatingModule,
     FormsModule,
-    CarouselModule
+    CarouselModule,
+    TableModule
   ],
   exports: [
     BannerComponent,
     CardComponent,
     GaleriaComponent,
-    CardNewsComponent
+    CardNewsComponent,
+    CardsitasComponent
   ],
   providers:[
     CafesService,

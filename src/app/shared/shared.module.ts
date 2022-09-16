@@ -17,6 +17,7 @@ import { UsuariosService } from '../servicios/usuarios.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 
+
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -30,7 +31,8 @@ import { environment } from 'src/environments/environment';
     TriStateCheckboxModule,
     ReactiveFormsModule,
     CardModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ReactiveFormsModule
   ],
   exports: [
     NavbarComponent,
