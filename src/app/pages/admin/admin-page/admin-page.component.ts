@@ -11,7 +11,7 @@ import { CafesService } from 'src/app/servicios/cafes.service';
 export class AdminPageComponent implements OnInit {
 
   displayPosition: boolean = false;
-
+  eliminarVisible=false
   position:string;
 
   //variable que usamos para cambiar el agregar/editar
@@ -41,7 +41,6 @@ export class AdminPageComponent implements OnInit {
  //neudfdfdffbfb
   //Hacemos un metodo que agrega cafes y su datos a la base de datos y los muestra en cards
   agregarCafe(){
-    this.textoBoton= 'Agregar Cafe'
 
     if(this.nuevosCafes.valid){
       //Creamos una variable para agregar los productos
@@ -79,6 +78,12 @@ export class AdminPageComponent implements OnInit {
 
     this.servicioCafes.editarCafe(this.cafeSeleccionado.idcafe, nuevoCafe).then((resp)=>{
       alert('Cafe actualizado con exito')
+      this.nuevosCafes=new FormGroup({
+        nombre: new FormControl('',Validators.required)!,
+        precio: new FormControl(0,Validators.required)!,
+        descripcion: new FormControl('', Validators.required)!,
+        imagen: new FormControl('', Validators.required)!
+      })
     })
     .catch((error)=>{
       alert('No se puede actualizar')
@@ -86,7 +91,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   mostrarEditar(cafeSeleccionado:Cafe){
-    this.textoBoton= 'Editar cafe'
+    this.textoBoton= 'Actualizar Café'
     this.cafeSeleccionado= cafeSeleccionado
 
     this.nuevosCafes.setValue({
@@ -95,11 +100,13 @@ export class AdminPageComponent implements OnInit {
       imagen: cafeSeleccionado.imagen,
       descripcion: cafeSeleccionado.descripcion
     })
+    this.displayPosition=true
 
   }
 
 //creamos una funcion que al selccionar un producto busque su id para despues eliminarlo
   mostrarEliminar(cafe:Cafe){
+    this.eliminarVisible=true
     this.cafeSeleccionado= cafe
   }
   
@@ -108,14 +115,27 @@ export class AdminPageComponent implements OnInit {
   eliminarCafe(){
     this.servicioCafes.deleteCafe(this.cafeSeleccionado.idcafe).then((resp)=>{
       alert('el cafe fue eliminado con exito')
+      this.nuevosCafes=new FormGroup({
+        nombre: new FormControl('',Validators.required)!,
+        precio: new FormControl(0,Validators.required)!,
+        descripcion: new FormControl('', Validators.required)!,
+        imagen: new FormControl('', Validators.required)!
+      })
     })
     //si hay un error al eliminar se avisara con el "catch"
     .catch((err)=>{
       alert('no se pudo eliminar')
     })
   }
-
+  cargarCafe(){
+    if(this.textoBoton==='Agregar Café'){
+      this.agregarCafe()
+    }else if(this.textoBoton==='Actualizar Café'){
+      this.actualizarCafe()
+    }
+  }
   showPositionDialog(position: string) {
+    this.textoBoton= 'Agregar Café'
     this.position = position;
     this.displayPosition = true;
   }

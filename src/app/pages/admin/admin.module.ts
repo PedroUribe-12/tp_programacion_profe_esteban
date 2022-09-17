@@ -9,12 +9,15 @@ import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import {CafesService} from '../../servicios/cafes.service';
-//nodulos de primeng
+//modulos de primeng
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
 import { ComponentsModule } from 'src/app/components/components.module';
+import {TableModule} from 'primeng/table';
+import {ToolbarModule} from 'primeng/toolbar';
+
 @NgModule({
   declarations: [
     AdminPageComponent
@@ -28,7 +31,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     ButtonModule,
     InputTextModule,
     TriStateCheckboxModule,
-    ComponentsModule
+    ComponentsModule,
+    TableModule,
+    ToolbarModule
   ],
   providers: [CafesService]
 })
