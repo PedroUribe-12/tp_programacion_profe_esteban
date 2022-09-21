@@ -14,10 +14,26 @@
 
     .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled) .p-menuitem-text{
         color: #ffbe00;
+        font-weight: 1000;
+    }
+
+    .pi{
+        color: #ffbe00 !important;
+        font-weight: 1000;
     }
 
     .p-component.abajo{
         background-color: #ffbe00;
         transition: 0.4s;
+    }
+
+    .p-component.abajo .p-menuitem > .p-menuitem-link:not(.p-disabled) .p-menuitem-text{
+        color: #0f0f0f;
+        font-weight: 800;
+    }
+
+    .p-component.abajo .pi::before{
+        color: #0f0f0f;
+        font-weight: 800;
     }
 }
